@@ -17,23 +17,10 @@
 <div class="easyui-accordion" style="width:auto;border: 0px;">
     <ul id="menu" class="easyui-tree" style="margin-top: 10px;margin-left: 5px;">
         <li>
-            <span>课题相关操作</span>
+            <span>图书相关管理</span>
             <ul>
-                <li data-options="attributes:{'url':'tp_1_manage'}">课题管理</li>
-                <li>
-                    <span>课题相关查询</span>
-                    <ul>
-                        <li data-options="attributes:{'url':'tp_2_defenseGroup'}">答辩分组查询</li>
-                        <li data-options="attributes:{'url':'tp_1_myStudent'}">我的学生名单</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>课题相关填写</span>
-                    <ul>
-                        <li data-options="attributes:{'url':''}">填报设计成绩</li>
-                        <li data-options="attributes:{'url':'tp_3_answerPT'}">答疑时间和地点设置</li>
-                    </ul>
-                </li>
+                <li data-options="attributes:{'url':'book_manage'}">图书管理</li>
+                <li data-options="attributes:{'url':'book_kind_manage'}">图书类别管理</li>
             </ul>
         </li>
         <li>

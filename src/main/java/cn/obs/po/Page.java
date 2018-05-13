@@ -7,7 +7,7 @@ public class Page {
 
     int page;
 
-    int size;
+    int rows;
 
     int start;
 
@@ -17,7 +17,7 @@ public class Page {
     public String toString() {
         return "PageInfo{" +
                 "page=" + page +
-                ", size=" + size +
+                ", rows=" + rows +
                 ", start=" + start +
                 ", user='" + user + '\'' +
                 '}';
@@ -39,12 +39,12 @@ public class Page {
         this.page = page;
     }
 
-    public int getSize() {
-        return size;
+    public int getRows() {
+        return rows;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setRows(int rows) {
+        this.rows = rows;
     }
 
     public int getStart() {

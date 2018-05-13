@@ -13,7 +13,7 @@
 <body>
 <div style="height:50px;text-align: center;font-family: 微软雅黑;font-size: 25px;" >
     <span style=" width: 300px;">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毕业设计综合管理系统
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网上书城——后台
     </span>
     <c:if test="${globleUser != null}">
         <span style="color: #000000;display:block; width: 20px; float:right; text-align:right;font-family: 微软雅黑;font-size: 16px;">

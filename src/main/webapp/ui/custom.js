@@ -51,29 +51,30 @@ function subNewUser() {
         alert(backresult);
     })
 }
-function newClasssInfo() {
+
+function newBookkind() {
     $("#fm").form("clear");
-    $("#classsInfoDialog").dialog("open").dialog("setTitle","新建");
-    url = "/classsInfo/add";
+    $("#BookkindDialog").dialog("open").dialog("setTitle","新建");
+    url = "/bookkind/addition";
 }
-function editClasssInfo() {
+function editBookkind() {
     var row = $("#dg").datagrid("getSelected");
     if (row){
-        $("#classsInfoDialog").dialog("open").dialog("setTitle","编辑");
+        $("#BookkindDialog").dialog("open").dialog("setTitle","编辑");
         $("#fm").form("load",row);
-        url = "/classsInfo/update?ciid="+row.ciid;
+        url = "/bookkind/updates/"+row.bkid;
     }
 }
-function destroyClasssInfo() {
+function destroyBookkind() {
     var row = $("#dg").datagrid("getSelected");
     if (row){
         $.messager.confirm("Confirm","确定要删除这条记录吗",function (r) {
             if (r){
                 $("#dfm").form("submit",{
-                    url:"/classsInfo/delete?ciid="+row.ciid,
+                    url:"/bookkind/deletion/"+row.bkid,
                     success: function (res) {
                         alert(res);
-                        $("#classsInfoDialog").dialog("close");
+                        $("#BookkindDialog").dialog("close");
                         $("#dg").datagrid("reload")
                     }
                 })
@@ -81,39 +82,40 @@ function destroyClasssInfo() {
         })
     }
 }
-function saveClasssInfo() {
+function saveBookkind() {
     $("#fm").form("submit",{
         url:url,
         success: function (res) {
             alert(res);
-            $("#classsInfoDialog").dialog("close");
+            $("#BookkindDialog").dialog("close");
             $('#dg').datagrid("reload");
         }
     })
 }
-function newClasssNotice() {
+
+function newBook() {
     $("#fm").form("clear");
-    $("#noticeDialog").dialog("open").dialog("setTitle","新建");
-    url = "/classsNotice/add";
+    $("#BookDialog").dialog("open").dialog("setTitle","新建");
+    url = "/book/addition";
 }
-function editClasssNotice() {
+function editBook() {
     var row = $("#dg").datagrid("getSelected");
     if (row){
-        $("#noticeDialog").dialog("open").dialog("setTitle","编辑");
+        $("#BookDialog").dialog("open").dialog("setTitle","编辑");
         $("#fm").form("load",row);
-        url = "/classsNotice/update?cnid="+row.cnid;
+        url = "/book/updates/"+row.id;
     }
 }
-function destroyClasssNotice() {
+function destroyBook() {
     var row = $("#dg").datagrid("getSelected");
     if (row){
         $.messager.confirm("Confirm","确定要删除这条记录吗",function (r) {
             if (r){
                 $("#dfm").form("submit",{
-                    url:"/classsNotice/delete?cnid="+row.cnid,
+                    url:"/book/deletion/"+row.id,
                     success: function (res) {
                         alert(res);
-                        $("#noticeDialog").dialog("close");
+                        $("#BookDialog").dialog("close");
                         $("#dg").datagrid("reload")
                     }
                 })
@@ -121,16 +123,31 @@ function destroyClasssNotice() {
         })
     }
 }
-function saveClasssNotice() {
+function saveBook() {
     $("#fm").form("submit",{
         url:url,
         success: function (res) {
             alert(res);
-            $("#noticeDialog").dialog("close");
+            $("#BookDialog").dialog("close");
             $('#dg').datagrid("reload");
         }
     })
 }
+function showBook() {
+    var row = $("#dg").datagrid("getSelected");
+    if (row){
+        $("#showBookDialog").dialog("open").dialog("setTitle",row.title);
+        $("#bookname_content").html(row.bookname);
+        $("#author_content").html(row.author);
+        $("#publishyear_content").html(row.publishyear);
+        $("#pages_content").html(row.pages);
+        $("#price_content").html(row.price);
+        $("#score_content").html(row.score);
+        $("#content_content").html(row.content);
+        $("#author_info_content").html(row.authorinfo);
+    }
+}
+
 function newFile() {
     $("#fm").form("clear");
     $("#fileDialog").dialog("open").dialog("setTitle","新建");

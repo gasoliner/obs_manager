@@ -85,11 +85,11 @@
       <version>${mybatis-spring.version}</version>
     </dependency>
     <!--pageHelper插件-->
-    <!--<dependency>-->
-      <!--<groupId>com.github.pagehelper</groupId>-->
-      <!--<artifactId>pagehelper</artifactId>-->
-      <!--<version>${mybatis.pagehelper.version}</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>${mybatis.pagehelper.version}</version>
+    </dependency>
     <!--mysql驱动-->
     <dependency>
       <groupId>mysql</groupId>
