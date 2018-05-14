@@ -19,14 +19,14 @@
     </div>
     <div class="messager-input" style="height: 56px; margin: 10px;">
         <p align="center" style="font-size: 16px;">
-            <label for="newpass" >输入新密码: </label>
-            <input id="newpass" class="easyui-textbox"  type="password" style="width: 300px;height: 32px"/>
+            <label for="newpass1" >输入新密码: </label>
+            <input id="newpass1" class="easyui-textbox"  type="password" style="width: 300px;height: 32px"/>
         </p>
     </div>
     <div class="messager-input" style="height: 56px; margin: 10px;">
         <p align="center" style="font-size: 16px;">
-            <label for="newpass_check" >确认新密码: </label>
-            <input id="newpass_check" class="easyui-textbox" type="password"  style="width: 300px;height: 32px"/>
+            <label for="newpass2" >确认新密码: </label>
+            <input id="newpass2" class="easyui-textbox" type="password"  style="width: 300px;height: 32px"/>
         </p>
     </div>
     <div class="messager-button" style="height: 56px; margin: 10px;">

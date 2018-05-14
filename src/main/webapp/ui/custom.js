@@ -52,6 +52,33 @@ function subNewUser() {
     })
 }
 
+function perInf1() {
+    $.post("/manager/updates/" + $("#mid").val(),
+        {
+            mid:$("#mid").val(),
+            name:$("#name").val(),
+            username:$("#username").val(),
+            sex:$("input[name='sex']:checked").val(),
+            phone:$("#phone").val(),
+            email:$("#email").val()
+        },
+        function (data) {
+            alert(data);
+        });
+}
+function perPas1() {
+    $.post("/manager/password",
+        {
+            mid:$("#mid").val(),
+            oldpassword:$("#oldpass").val(),
+            newpassword1:$("#newpass1").val(),
+            newpassword2:$("#newpass2").val()
+        },
+        function (data) {
+            alert(data);
+        });
+}
+
 function newBookkind() {
     $("#fm").form("clear");
     $("#BookkindDialog").dialog("open").dialog("setTitle","新建");
@@ -188,32 +215,7 @@ function saveFile() {
         }
     })
 }
-function perInf1() {
-    $.post("/personal/update",
-        {
-            tid:$("#tid").val(),
-            employeenum:$("#employeenum").val(),
-            username:$("#username").val(),
-            classs:$("#classs").val(),
-            phone:$("#phone").val(),
-            email:$("#email").val()
-        },
-        function (data) {
-        alert(data);
-    });
-}
-function perPas1() {
-    $.post("/personal/password",
-        {
-            tid:$("#tid").val(),
-            oldpassword:$("#oldpass").val(),
-            newpassword1:$("#newpass").val(),
-            newpassword2:$("#newpass1").val()
-        },
-        function (data) {
-        alert(data);
-    });
-}
+
 function newAchievement() {
     $("#fm").form("clear");
     $("#achievementDialog").dialog("open").dialog("setTitle","新建");
