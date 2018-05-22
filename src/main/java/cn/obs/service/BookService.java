@@ -2,6 +2,7 @@ package cn.obs.service;
 
 import cn.obs.po.Book;
 import cn.obs.po.Page;
+import cn.obs.vo.VoBook;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface BookService {
     int update(Book record);
 
     long count();
+
+    List<VoBook> vo(List<Book> list);
+
+    Book selectByPrimaryKey(Integer id);
 }

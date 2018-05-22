@@ -78,7 +78,7 @@ public class ManagerController {
                     manager.setMid(mid);
                     manager.setPassword(newpassword1);
                     managerService.update(manager);
-                    return JSON.toJSONString("操作成功");
+                    return JSON.toJSONString("操作成功，下次登录生效");
                 }
             } catch (Exception e) {
             }

@@ -38,7 +38,7 @@
 </div>
 </div>
 <div>
-    <input id="tid" type="hidden" value="1"/>
+    <input id="mid" type="hidden" value="${manager.mid}"/>
 </div>
 </body>
 </html>

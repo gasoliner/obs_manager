@@ -18,4 +18,6 @@ public interface BookkindService {
     int update(Bookkind record);
 
     long count();
+
+    Bookkind selectByPrimaryKey(Integer kind);
 }

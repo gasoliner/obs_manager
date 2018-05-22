@@ -3,13 +3,17 @@ package cn.obs.service.impl;
 import cn.obs.mapper.BookMapper;
 import cn.obs.po.Book;
 import cn.obs.po.BookExample;
+import cn.obs.po.Bookkind;
 import cn.obs.po.Page;
 import cn.obs.service.BookService;
+import cn.obs.service.BookkindService;
+import cn.obs.vo.VoBook;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +21,9 @@ import java.util.List;
  */
 @Service("bookService")
 public class BookServiceImpl implements BookService {
+
+    @Autowired
+    BookkindService bookkindService;
 
     @Autowired
     BookMapper bookMapper;
@@ -50,5 +57,23 @@ public class BookServiceImpl implements BookService {
     @Override
     public long count() {
         return total;
+    }
+
+    @Override
+    public List<VoBook> vo(List<Book> list) {
+        List<VoBook> list1 = new ArrayList<>();
+        for (Book book:
+                list) {
+            VoBook voBook = new VoBook(book);
+            voBook.setVoKind(bookkindService.selectByPrimaryKey(voBook.getKind()).getKind());
+            voBook.setVoUrl("<a href = \"#\" onclick=\"showBookPic('" + voBook.getId() + "')\">查看图片</a>");
+            list1.add(voBook);
+        }
+        return list1;
+    }
+
+    @Override
+    public Book selectByPrimaryKey(Integer id) {
+        return bookMapper.selectByPrimaryKey(id);
     }
 }

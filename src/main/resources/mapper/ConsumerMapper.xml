@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.obs.mapper.ConsumerMapper">
   <resultMap id="BaseResultMap" type="cn.obs.po.Consumer">
-    <id column="cid" jdbcType="VARCHAR" property="cid" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <id column="cid" jdbcType="INTEGER" property="cid" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="receive" jdbcType="VARCHAR" property="receive" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    cid, password, nickname, sex, email, phone, receive
+    cid, nickname, password, sex, phone, email, receive
   </sql>
   <select id="selectByExample" parameterType="cn.obs.po.ConsumerExample" resultMap="BaseResultMap">
     select
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from consumer
-    where cid = #{cid,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from consumer
-    where cid = #{cid,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="cn.obs.po.ConsumerExample">
     delete from consumer
@@ -102,33 +102,33 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.obs.po.Consumer">
-    insert into consumer (cid, password, nickname, 
-      sex, email, phone, 
+    insert into consumer (cid, nickname, password, 
+      sex, phone, email, 
       receive)
-    values (#{cid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+    values (#{cid,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{receive,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.obs.po.Consumer">
+  <insert id="insertSelective" parameterType="cn.obs.po.Consumer" useGeneratedKeys="true" keyProperty="cid" keyColumn="cid">
     insert into consumer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cid != null">
         cid,
       </if>
-      <if test="password != null">
-        password,
-      </if>
       <if test="nickname != null">
         nickname,
+      </if>
+      <if test="password != null">
+        password,
       </if>
       <if test="sex != null">
         sex,
       </if>
-      <if test="email != null">
-        email,
-      </if>
       <if test="phone != null">
         phone,
+      </if>
+      <if test="email != null">
+        email,
       </if>
       <if test="receive != null">
         receive,
@@ -136,22 +136,22 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cid != null">
-        #{cid,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+        #{cid,jdbcType=INTEGER},
       </if>
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
       </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
       <if test="sex != null">
         #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="receive != null">
         #{receive,jdbcType=VARCHAR},
@@ -168,22 +168,22 @@
     update consumer
     <set>
       <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.password != null">
-        password = #{record.password,jdbcType=VARCHAR},
+        cid = #{record.cid,jdbcType=INTEGER},
       </if>
       <if test="record.nickname != null">
         nickname = #{record.nickname,jdbcType=VARCHAR},
       </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
       <if test="record.sex != null">
         sex = #{record.sex,jdbcType=VARCHAR},
       </if>
-      <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR},
-      </if>
       <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.receive != null">
         receive = #{record.receive,jdbcType=VARCHAR},
@@ -195,12 +195,12 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update consumer
-    set cid = #{record.cid,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
+    set cid = #{record.cid,jdbcType=INTEGER},
       nickname = #{record.nickname,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
       receive = #{record.receive,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -209,35 +209,35 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.obs.po.Consumer">
     update consumer
     <set>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
-      </if>
       <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="receive != null">
         receive = #{receive,jdbcType=VARCHAR},
       </if>
     </set>
-    where cid = #{cid,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.obs.po.Consumer">
     update consumer
-    set password = #{password,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
+    set nickname = #{nickname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       receive = #{receive,jdbcType=VARCHAR}
-    where cid = #{cid,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
   </update>
 </mapper>

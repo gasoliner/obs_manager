@@ -30,7 +30,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    public int delete(String id) {
+    public int delete(Integer id) {
         return consumerMapper.deleteByPrimaryKey(id);
     }
 
@@ -42,5 +42,10 @@ public class ConsumerServiceImpl implements ConsumerService {
     @Override
     public long count() {
         return consumerMapper.countByExample(new ConsumerExample());
+    }
+
+    @Override
+    public Consumer selectByPrimaryKey(Integer cid) {
+        return consumerMapper.selectByPrimaryKey(cid);
     }
 }

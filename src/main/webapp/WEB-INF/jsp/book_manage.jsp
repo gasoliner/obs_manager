@@ -24,6 +24,7 @@
             <th field="score" width="50">豆瓣评分</th>
             <th field="content" width="50">内容简介</th>
             <th field="authorinfo" width="50">作者简介</th>
+            <th field="voUrl" width="50">查看图片</th>
         </tr>
         </thead>
     </table>
@@ -46,7 +47,7 @@
 <div id="BookDialog" class="easyui-dialog" style="width:500px;height:550px;padding:10px 20px"
      closed="true" buttons="#Book-buttons">
     <div class="ftitle">图书信息填写</div>
-    <form id="fm" method="post">
+    <form id="fm" method="post" enctype="multipart/form-data">
         <div class="fitem">
             <label>所属分类&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
             <input name="kind"
@@ -55,7 +56,7 @@
                            valueField:'bkid',
                            textField:'kind',
                            width:300,
-                           url:'${pageContext.request.contextPath}/bookkind/list'" />
+                           url:'${pageContext.request.contextPath}/bookkind/ddllist'" />
         </div>
         <div class="fitem">
             <label>书名</label><div>&nbsp;</div>
@@ -80,6 +81,10 @@
         <div class="fitem">
             <label>豆瓣评分</label><div>&nbsp;</div>
             <input type="text" name="score" class="plainText">
+        </div>
+        <div class="fitem">
+            <label>图书图片</label><div>&nbsp;</div>
+            <input type="file" name="img_file" class="plainText">
         </div>
         <div class="fitem">
             <label>内容简介</label><div>&nbsp;</div>
@@ -110,6 +115,8 @@
     <div id="price_content"></div>
     <h5>豆瓣评分：</h5>
     <div id="score_content"></div>
+    <h5>查看图片：</h5>
+    <div id="voUrl_content"></div>
     <h5>内容简介：</h5>
     <div id="content_content"></div>
     <h5>作者简介：</h5>
@@ -118,6 +125,15 @@
 
 <div id="showBookDialog-buttons">
     <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="javascript:$('#showBookDialog').dialog('close')">好的</a>
+</div>
+
+<div id="showBookPicDialog" class="easyui-dialog" style="width:500px;height:550px;padding:10px 20px"
+     closed="true" buttons="#showBookPicDialog-buttons">
+    <img id="att_img"/>
+</div>
+
+<div id="showBookPicDialog-buttons">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="javascript:$('#showBookPicDialog').dialog('close')">好的</a>
 </div>
 
 <div>

@@ -49,4 +49,9 @@ public class BookkindServiceImpl implements BookkindService {
     public long count() {
         return total;
     }
+
+    @Override
+    public Bookkind selectByPrimaryKey(Integer kind) {
+        return bookkindMapper.selectByPrimaryKey(kind);
+    }
 }

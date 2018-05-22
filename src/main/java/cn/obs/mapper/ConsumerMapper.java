@@ -11,7 +11,7 @@ public interface ConsumerMapper {
 
     int deleteByExample(ConsumerExample example);
 
-    int deleteByPrimaryKey(String cid);
+    int deleteByPrimaryKey(Integer cid);
 
     int insert(Consumer record);
 
@@ -19,7 +19,7 @@ public interface ConsumerMapper {
 
     List<Consumer> selectByExample(ConsumerExample example);
 
-    Consumer selectByPrimaryKey(String cid);
+    Consumer selectByPrimaryKey(Integer cid);
 
     int updateByExampleSelective(@Param("record") Consumer record, @Param("example") ConsumerExample example);
 

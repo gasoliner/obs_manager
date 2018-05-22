@@ -13,9 +13,11 @@ public interface ConsumerService {
 
     int insert(Consumer record);
 
-    int delete(String id);
+    int delete(Integer id);
 
     int update(Consumer record);
 
     long count();
+
+    Consumer selectByPrimaryKey(Integer cid);
 }
