@@ -22,7 +22,7 @@
                 <div class="fitem">
                     <label>账号&nbsp;&nbsp;&nbsp;</label>
                     <div style="height: 5px;">&nbsp;</div>
-                    <input class="easyui-textbox" name="employeenum" style="width: 100%;height: 32px"/>
+                    <input class="easyui-textbox" name="name" style="width: 100%;height: 32px"/>
                 </div><br/>
                 <div class="fitem">
                     <label>密码&nbsp;&nbsp;&nbsp;</label>

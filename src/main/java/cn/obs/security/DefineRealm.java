@@ -25,12 +25,12 @@ public class DefineRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.println("shiro 登录");
         String name = (String) authenticationToken.getPrincipal();
-        Manager manager = managerService.selectByPrimaryKey(Integer.parseInt(name));
+        Manager manager = managerService.selectByAccount(name);
         if(manager == null) {
             throw new UnknownAccountException();//没找到帐号
         }
         AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                manager.getName(),
+                manager.getAccount(),
                 manager.getPassword(),
                 getName()
         );

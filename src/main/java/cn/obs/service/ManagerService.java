@@ -20,4 +20,6 @@ public interface ManagerService {
     long count();
 
     Manager selectByPrimaryKey(Integer id);
+
+    Manager selectByAccount(String acc);
 }

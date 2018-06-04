@@ -29,6 +29,7 @@
             <value>
                 /ui/** = anon
                 /user/login = anon
+                /login/login = anon
                 /login = anon
                 /unauthorized = anon
                 /** = user

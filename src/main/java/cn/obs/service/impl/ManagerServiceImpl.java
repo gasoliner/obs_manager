@@ -56,4 +56,17 @@ public class ManagerServiceImpl implements ManagerService {
     public Manager selectByPrimaryKey(Integer id) {
         return managerMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public Manager selectByAccount(String acc) {
+        ManagerExample example = new ManagerExample();
+        ManagerExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(acc);
+        List<Manager> list = managerMapper.selectByExample(example);
+        if (list != null && list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
 }
